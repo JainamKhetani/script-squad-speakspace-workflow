@@ -13,7 +13,6 @@ app.post("/api/process", (req, res) => {
     console.log("Timestamp:", timestamp);
 
     // SIMPLE WORKFLOW EXAMPLE:
-    // Convert the text into a simple HTML blog post
     const blogPost = `
         <h1>Your Blog Post</h1>
         <p>${prompt}</p>
@@ -26,7 +25,13 @@ app.post("/api/process", (req, res) => {
     });
 });
 
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (req, res) => {
+    res.send("SpeakSpace API is running on Railway 🚀");
+});
+
 // START SERVER
-app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+app.listen(PORT, () => {
+    console.log("Server running on port", PORT);
 });
